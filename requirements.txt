@@ -1,0 +1,7 @@
+torch>=2.2
+datasets>=2.19
+tokenizers>=0.19
+sentencepiece>=0.2
+numpy
+pandas
+tqdm

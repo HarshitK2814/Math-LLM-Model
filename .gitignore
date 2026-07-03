@@ -1,0 +1,25 @@
+# Private evidence/notes — never publish
+proof/
+
+# Data & artifacts
+data/raw/
+data/processed/
+checkpoints/
+runs/
+wandb/
+*.bin
+*.pt
+*.safetensors
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
