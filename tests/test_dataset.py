@@ -13,9 +13,9 @@ TOKENIZER = Path(__file__).resolve().parents[1] / "tokenizers" / "bpe16k_digits.
 @pytest.fixture
 def tiny_jsonl(tmp_path: Path) -> Path:
     rows = [
-        {"question": "१ + १ = कत?", "cot": "१ + १ = २", "answer": "२"},
-        {"question": "२ + २ = कत?", "cot": "२ + २ = ४", "answer": "४"},
-        {"question": "३ + ३ = कत?", "cot": "३ + ३ = ६", "answer": "६"},
+        {"question": "১ + ১ = কত?", "cot": "১ + ১ = ২", "answer": "২"},
+        {"question": "২ + ২ = কত?", "cot": "২ + ২ = ৪", "answer": "৪"},
+        {"question": "৩ + ৩ = কত?", "cot": "৩ + ৩ = ৬", "answer": "৬"},
     ]
     path = tmp_path / "tiny.jsonl"
     with path.open("w", encoding="utf-8") as f:
