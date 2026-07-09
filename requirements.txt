@@ -5,3 +5,4 @@ sentencepiece>=0.2
 numpy
 pandas
 tqdm
+pytest>=8.0
