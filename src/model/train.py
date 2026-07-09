@@ -72,17 +72,19 @@ def main() -> None:
     out_dir = ROOT / args.out_dir
 
     train_bin = PACKED / f"{args.tokenizer}_train.bin"
-    config = ModelConfig()
-    train_ds = PackedDataset(train_bin, block_size=config.context_len)
-    train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True, drop_last=True)
 
     start_step = 0
     if args.resume:
         model, optimizer, start_step = load_checkpoint(Path(args.resume), device)
+        config = model.config
         print(f"resumed from {args.resume} at step {start_step}")
     else:
+        config = ModelConfig()
         model = Transformer(config).to(device)
         optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=0.1, betas=(0.9, 0.95))
+
+    train_ds = PackedDataset(train_bin, block_size=config.context_len)
+    train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True, drop_last=True)
 
     print(f"model params: {model.num_params():,} | device: {device} | train chunks: {len(train_ds):,}")
 
