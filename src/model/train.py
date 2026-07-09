@@ -110,7 +110,7 @@ def main() -> None:
         optimizer.step()
 
         step += 1
-        if step % 50 == 0 or step == 1:
+        if step % 50 == 0 or step == 1 or step == args.steps:
             elapsed = time.time() - t0
             print(f"step {step}/{args.steps} | loss {loss.item():.4f} | lr {lr:.2e} | {elapsed:.1f}s")
 
